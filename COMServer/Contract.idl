@@ -1,0 +1,31 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+    object,
+    oleautomation,
+    uuid(BA9AC84B-C7FC-41CF-8B2F-1764EB773D4B)
+]
+interface IServer : IDispatch
+{
+    HRESULT ComputePi(
+        [out, retval] double *ret);
+};
+
+// See the matching Guid and TLB version in ComServer.Server.cs
+[
+    uuid(A8DAD545-A841-4EE4-B4DA-AAAC2FDDD305),
+    version( 1.0 )
+]
+library ServerLib
+{
+    importlib("stdole2.tlb");
+
+    [
+        uuid(DB1797F5-7198-4411-8563-D05F4E904956)
+    ]
+    coclass Server
+    {
+        [default] interface IServer;
+    }
+}
