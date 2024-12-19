@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <!-- Used in lieu of a Primary Interop Assembly (PIA) -->
-    <Compile Include="../COMContract/*.cs" />
+    <!--<Compile Include="../COMContract/*.cs" />-->
   </ItemGroup>
   <ItemGroup>
     <RuntimeHostConfigurationOption Include="System.Runtime.InteropServices.COM.LoadComponentInDefaultContext" Value="true" />

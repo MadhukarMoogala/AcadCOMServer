@@ -1,8 +1,6 @@
-﻿using Autodesk.AutoCAD.Interop;
-using Autodesk.AutoCAD.Runtime;
+﻿using Autodesk.AutoCAD.Runtime;
 using System;
 using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.ComTypes;
 
 
 namespace AcadAddin
@@ -39,7 +37,7 @@ namespace AcadAddin
             if (doc == null)
                 return;
             var editor = doc.Editor;
-            IAcadApplication acadObj = Autodesk.AutoCAD.ApplicationServices.Application.AcadApplication as IAcadApplication;
+            dynamic acadObj = Autodesk.AutoCAD.ApplicationServices.Application.AcadApplication;
             double pi = 0;
             if (acadObj != null)
             {
@@ -57,6 +55,7 @@ namespace AcadAddin
                 catch (System.Exception ex)
                 {
                     editor.WriteMessage("\n" + ex.Message);
+                    //Incase GetInterfaceObject fails, we can try to create the object using CoClass
                     var server = new Activation.Server();
                     pi = server.ComputePi();
                     editor.WriteMessage("\n" + pi);

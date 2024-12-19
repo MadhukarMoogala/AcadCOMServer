@@ -4,13 +4,14 @@
         <RootNamespace>AcadAddin</RootNamespace>
         <TargetFramework>net8.0</TargetFramework>
         <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
-        <AssemblySearchPaths>D:\ArxSdks\Arx2025\inc\;D:\ArxSdks\Arx2025\inc-x64\;$(AssemblySearchPaths)</AssemblySearchPaths>
+        <AssemblySearchPaths>$(AssemblySearchPaths)</AssemblySearchPaths>
         <Platforms>AnyCPU;x64</Platforms>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <OutputPath>..\Binaries</OutputPath>
     </PropertyGroup>
     <ItemGroup>
         <FrameworkReference Include="Microsoft.WindowsDesktop.App"></FrameworkReference>
+        <PackageReference Include="AutoCAD.NET" Version="25.0.1" ExcludeAssets="runtime" />
         <ProjectReference Include="..\COMServer\COMServer.csproj" />
         <Reference Include="AcDbMgd">
             <Private>False</Private>
@@ -19,12 +20,6 @@
             <Private>False</Private>
         </Reference>
         <Reference Include="acmgd">
-            <Private>False</Private>
-        </Reference>
-        <Reference Include="Autodesk.AutoCAD.Interop">
-            <Private>False</Private>
-        </Reference>
-        <Reference Include="Autodesk.AutoCAD.Interop.Common">
             <Private>False</Private>
         </Reference>        
     </ItemGroup>   

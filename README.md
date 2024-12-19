@@ -1,64 +1,67 @@
----
-languages:
-- csharp
-products:
-- dotnet
-page_type: sample
-name: "COM Server Demo"
-urlFragment: "com-server-demo"
-description: "A basic example of a managed COM server in .NET Core"
+## Bridging .NET Core and AutoCAD: Exposing and Using COM Server Components with GetInterfaceObject
+
+### Overview
+
+This guide demonstrates how to expose COM server components in .NET Core and utilize them in AutoCAD using `GetInterfaceObject`. This workflow is suitable for AutoCAD 2025 and later versions.
+
 ---
 
-# COM Server Demo
+### Why Use COM in .NET Core?
 
-This is a basic example of providing a managed COM server in .NET Core 3.1. Documentation on the inner workings of activation can be found [here](https://github.com/dotnet/runtime/blob/main/docs/design/features/COM-activation.md).
+COM (Component Object Model) provides a standardized way for software components to communicate and has been a popular technology for extending AutoCAD for many years. While .NET Framework had seamless support for COM, achieving this in .NET Core or .NET 5+ requires additional effort but enables the use of modern frameworks like .NET 8.0.
 
-## Key Features
+In this example, we’ll create a COM server to calculate Pi and use it in AutoCAD.
 
-Demonstrates how to provide a COM server in .NET Core 3.1 or later.
+---
 
-Additional comments are contained in source and project files.
+### Prerequisites
 
-## Build and Run
+Ensure the following tools and environments are set up before proceeding:
 
-The project will only build and run on the Windows platform. You can build and run the example either by registering the COM server or by using registration-free COM.
+- **AutoCAD 2025 or later**
+- **Visual Studio 2022 (v17.10 or later)**
+- **.NET 8.0 SDK**
 
-### Registered COM
+---
 
-1. Install .NET Core 3.1 or later.
+### Build and Run
 
-1. Navigate to the root directory and run `dotnet.exe build`.
+Follow these steps to clone, build, and run the example:
 
-1. Follow the instructions for COM server registration that were emitted during the build.
+1. Clone the repository:
+   
+   ```bash
+   git clone https://github.com/MadhukarMoogala/AcadCOMServer.git
+   cd AcadCOMServer
+   ```
 
-1. Navigate to `COMClient/` and run `dotnet.exe run`.
+2. Restore dependencies and build the project:
+   
+   ```bash
+   dotnet restore
+   dotnet build
+   ```
 
-Program should output an estimated value of &#960;.
+3. Register the COM server:
+   
+   ```bash
+   regsvr32 ~AcadCOMServer\Binaries\net8.0\COMServer.comhost.dll
+   ```
 
-**Note** Remember to unregister the COM server when the demo is complete.
+4. Launch AutoCAD 2025 and load the plugin:
+   
+   - Use the `NETLOAD` command to load the plugin:
+     
+     ```
+     ~AcadCOMServer\Binaries\net8.0\AcadAddin.dll
+     ```
 
-### RegFree COM
+5. Run the `RunDLL` command:
+   
+   - A calculated value of Pi will be written to the AutoCAD command line.
 
-1. Install .NET Core 3.1 or later.
+---
 
-1. Navigate to the root directory and run `dotnet.exe build /p:RegFree=True`.
+### Written
 
-    - If the Registered COM demo was previously run, the project should be cleaned first - `dotnet.exe clean`
-
-1. Run the generated binary directly. For example, `COMClient\bin\Debug\netcoreapp3.1\COMClient.exe`.
-
-Program should output an estimated value of &#960;.
-
-### Default AssemblyLoadContext
-
-1. Install .NET 8 or later.
-
-1. Navigate to the root directory and run `dotnet.exe build /p:DefaultALC=True`.
-
-1. Follow the instructions for COM server registration that were emitted during the build.
-
-1. Run the generated binary directly. For example, `COMClient\bin\Debug\net8.0\COMClient.exe`.
-
-**Note** The RegFree COM scenario requires a customized [application manifest](https://docs.microsoft.com/windows/desktop/sbscs/manifests) in the executing binary. This means that attempting to execute through `dotnet.exe` will not work and instead trigger a rebuild of the project.
-
-**Note** Running the "Registered COM" first and then immediately following it by "RegFree COM" will not work, since the build system will not correctly rebuild all files (the simple property change is not detected as a reason for a full rebuild). To fix this, run `dotnet clean` between the two samples.
+Madhukar Moogala *APS  Developer Advocate*
