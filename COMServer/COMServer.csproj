@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>   
     <OutputPath>..\Binaries</OutputPath>
     <TargetFramework>net8.0</TargetFramework>
@@ -7,12 +6,7 @@
     <EnableComHosting>True</EnableComHosting>
     <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
-
-  <ItemGroup>
-    <!-- Used in lieu of a Primary Interop Assembly (PIA) -->
-    <!--<Compile Include="../COMContract/*.cs" />-->
-  </ItemGroup>
-  <ItemGroup>
-    <RuntimeHostConfigurationOption Include="System.Runtime.InteropServices.COM.LoadComponentInDefaultContext" Value="true" />
-  </ItemGroup>
+    <ItemGroup>
+        <RuntimeHostConfigurationOption Include="System.Runtime.InteropServices.COM.LoadComponentInDefaultContext" Value="true" />
+    </ItemGroup>
 </Project>

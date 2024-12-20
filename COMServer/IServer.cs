@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 /// </summary>
 
 [ComVisible(true)]
-[Guid("00020400-0000-0000-C000-000000000046")] 
+[Guid("00020400-0000-0000-C000-000000000046")]
 [InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 public interface IDispatch //We need a fake IDispatch interface to make the AutoCAD Happy!
 {

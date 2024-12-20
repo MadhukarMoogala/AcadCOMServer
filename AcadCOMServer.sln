@@ -5,10 +5,9 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "COMServer", "COMServer\COMServer.csproj", "{DED70780-3707-41D3-AE1E-02F9E60308D1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcadAddin", "AcadAddin\AcadAddin.csproj", "{E3B247F3-C446-493E-AA94-D793F584C2D7}"
-	ProjectSection(ProjectDependencies) = postProject
-		{DED70780-3707-41D3-AE1E-02F9E60308D1} = {DED70780-3707-41D3-AE1E-02F9E60308D1}
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcadNetAddin", "AcadNetAddin\AcadNetAddin.csproj", "{E3B247F3-C446-493E-AA94-D793F584C2D7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AcadArxAddin", "AcadArxAddin\AcadArxAddin.vcxproj", "{98701A32-7F78-495A-8118-BF444D154AC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +43,15 @@ Global
 		{E3B247F3-C446-493E-AA94-D793F584C2D7}.Release|x64.Build.0 = Release|x64
 		{E3B247F3-C446-493E-AA94-D793F584C2D7}.Release|x86.ActiveCfg = Release|Any CPU
 		{E3B247F3-C446-493E-AA94-D793F584C2D7}.Release|x86.Build.0 = Release|Any CPU
+		{98701A32-7F78-495A-8118-BF444D154AC2}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{98701A32-7F78-495A-8118-BF444D154AC2}.Debug|Any CPU.Build.0 = Debug|x64
+		{98701A32-7F78-495A-8118-BF444D154AC2}.Debug|x64.ActiveCfg = Debug|x64
+		{98701A32-7F78-495A-8118-BF444D154AC2}.Debug|x64.Build.0 = Debug|x64
+		{98701A32-7F78-495A-8118-BF444D154AC2}.Debug|x86.ActiveCfg = Debug|x64
+		{98701A32-7F78-495A-8118-BF444D154AC2}.Debug|x86.Build.0 = Debug|x64
+		{98701A32-7F78-495A-8118-BF444D154AC2}.Release|Any CPU.ActiveCfg = Debug|x64
+		{98701A32-7F78-495A-8118-BF444D154AC2}.Release|x64.ActiveCfg = Debug|x64
+		{98701A32-7F78-495A-8118-BF444D154AC2}.Release|x86.ActiveCfg = Debug|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

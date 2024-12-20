@@ -38,7 +38,10 @@ namespace COMServer
             throw new NotImplementedException();
         }
 
-        void IDispatch.Invoke(int dispIdMember, ref Guid riid, int lcid, short wFlags, ref DISPPARAMS pDispParams, out object pVarResult, ref EXCEPINFO pExcepInfo, out int puArgErr)
+        void IDispatch.Invoke(int dispIdMember, 
+            ref Guid riid, int lcid, short wFlags,
+            ref DISPPARAMS pDispParams, out object pVarResult,
+            ref EXCEPINFO pExcepInfo, out int puArgErr)
         {
             throw new NotImplementedException();
         }

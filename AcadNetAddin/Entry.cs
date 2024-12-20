@@ -30,8 +30,8 @@ namespace AcadAddin
     {
         
 
-        [CommandMethod("RunDLL")]
-        public void RunDLL()
+        [CommandMethod("RunDotNet")]
+        public void RunDotNet()
         {
             var doc = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument;
             if (doc == null)

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>Library</OutputType>
-        <RootNamespace>AcadAddin</RootNamespace>
+        <RootNamespace>AcadNetAddin</RootNamespace>
         <TargetFramework>net8.0</TargetFramework>
         <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
         <AssemblySearchPaths>$(AssemblySearchPaths)</AssemblySearchPaths>
