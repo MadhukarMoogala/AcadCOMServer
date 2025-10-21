@@ -12,7 +12,7 @@
     <ItemGroup>
         <FrameworkReference Include="Microsoft.WindowsDesktop.App"></FrameworkReference>
         <PackageReference Include="AutoCAD.NET" Version="25.0.1" ExcludeAssets="runtime" />
-        <ProjectReference Include="..\COMServer\COMServer.csproj" />
+        <ProjectReference Include="..\COMServer.Contracts\COMServer.Contracts.csproj" />
         <Reference Include="AcDbMgd">
             <Private>False</Private>
         </Reference>

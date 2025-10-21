@@ -7,14 +7,30 @@
   "targets": {
     ".NETCoreApp,Version=v8.0": {
       "COMServer/1.0.0": {
+        "dependencies": {
+          "COMServer.Contracts": "1.0.0"
+        },
         "runtime": {
           "COMServer.dll": {}
+        }
+      },
+      "COMServer.Contracts/1.0.0": {
+        "runtime": {
+          "COMServer.Contracts.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
         }
       }
     }
   },
   "libraries": {
     "COMServer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "COMServer.Contracts/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

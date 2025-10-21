@@ -6,6 +6,9 @@
     <EnableComHosting>True</EnableComHosting>
     <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\COMServer.Contracts\COMServer.Contracts.csproj" />
+  </ItemGroup>
     <ItemGroup>
         <RuntimeHostConfigurationOption Include="System.Runtime.InteropServices.COM.LoadComponentInDefaultContext" Value="true" />
     </ItemGroup>

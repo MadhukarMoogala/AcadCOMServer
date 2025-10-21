@@ -19,6 +19,52 @@ We will register the COM server created in .NET 8.0 and consume it in both .NET 
 
 To consume the server, we will use the `GetInterfaceObject` AutoCAD ActiveX API.
 
+### Design
+
+
+
+```mermaid
+graph TB
+  subgraph Contracts
+    C1["Contract.idl
+    (for C++ clients)"]
+    C2["COMServer.Contracts.dll
+    (for .NET clients)"]
+  end
+
+  subgraph Server
+    S["COMServer
+    (.NET 8 comhost)"]
+  end
+
+  subgraph Clients
+    N["C++ ARX Addin"]
+    M[".NET AcadNetAddin"]
+  end
+
+  C1 -->|"MIDL / TLB"| N
+  C2 -->|"ProjectReference"| M
+  S -->|"Implements Interface"| C2
+  N -->|"AutoCAD.GetInterfaceObject()"| S
+  M -->|"AutoCAD.GetInterfaceObject()"| S
+```
+
+```text
+        IServer (COM interface)
+      (shared: COMServer.Contracts)
+               |
+           Implements
+               |
+         COMServer (.NET comhost)
+         (registered, exposes Class)
+           /               \
+GetInterfaceObject()     GetInterfaceObject()
+   (Acad .NET)             (C++ / ARX)
+(ProjectRef -> Contracts)  (Contract.idl / Contract_i.h)
+
+```
+
+
 ---
 
 ### Prerequisites
